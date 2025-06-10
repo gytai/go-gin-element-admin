@@ -9,6 +9,7 @@ export const useUserStore = defineStore('user', () => {
   const token = ref(getToken())
   const userInfo = ref({})
   const userMenus = ref([])
+  const userPermissions = ref([])
 
   // 登录
   const login = async (loginForm) => {
@@ -46,14 +47,43 @@ export const useUserStore = defineStore('user', () => {
     try {
       const response = await getUserMenusApi()
       if (response.code === 0) {
-        userMenus.value = response.data || []
-        return response.data
+        const menuData = response.data || []
+        userMenus.value = menuData
+        
+        // 提取权限编码
+        const permissions = extractPermissions(menuData)
+        userPermissions.value = permissions
+        
+        return menuData
       } else {
         throw new Error(response.msg)
       }
     } catch (error) {
       throw error
     }
+  }
+
+  // 提取权限编码的递归函数
+  const extractPermissions = (menus) => {
+    const permissions = []
+    
+    const traverse = (items) => {
+      for (const item of items) {
+        // 如果有权限编码，添加到权限列表
+        if (item.permissionCode && item.permissionCode.trim()) {
+          permissions.push(item.permissionCode.trim())
+        }
+        // 递归处理子菜单
+        if (item.children && item.children.length > 0) {
+          traverse(item.children)
+        }
+      }
+    }
+    
+    traverse(menus)
+    
+    // 去重
+    return [...new Set(permissions)]
   }
 
   // 检查登录状态
@@ -78,6 +108,7 @@ export const useUserStore = defineStore('user', () => {
     token.value = ''
     userInfo.value = {}
     userMenus.value = []
+    userPermissions.value = []
     removeToken()
     router.push('/login')
   }
@@ -86,6 +117,7 @@ export const useUserStore = defineStore('user', () => {
     token,
     userInfo,
     userMenus,
+    userPermissions,
     login,
     getUserInfo,
     getUserMenus,
