@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Go-Gin-Element-Admin</title>
+  <style>
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-size: 18px;
+      color: #409eff;
+    }
+
+    .loading::after {
+      content: '...';
+      animation: dots 1.5s steps(4, end) infinite;
+    }
+
+    @keyframes dots {
+      0%, 20% {
+        color: rgba(0,0,0,0);
+        text-shadow:
+          .25em 0 0 rgba(0,0,0,0),
+          .5em 0 0 rgba(0,0,0,0);
+      }
+      40% {
+        color: #409eff;
+        text-shadow:
+          .25em 0 0 rgba(0,0,0,0),
+          .5em 0 0 rgba(0,0,0,0);
+      }
+      60% {
+        text-shadow:
+          .25em 0 0 #409eff,
+          .5em 0 0 rgba(0,0,0,0);
+      }
+      80%, 100% {
+        text-shadow:
+          .25em 0 0 #409eff,
+          .5em 0 0 #409eff;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="loading">
+      系统加载中
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html> 

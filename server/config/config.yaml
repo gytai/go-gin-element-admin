@@ -1,0 +1,54 @@
+# Go-Gin-Element-Admin 系统配置文件
+
+# JWT认证配置
+jwt:
+  signing-key: 'go-gin-element-admin'
+  expires-time: 604800  # 7天，单位秒
+  buffer-time: 86400    # 1天，单位秒
+  issuer: 'go-gin-element-admin'
+
+# 日志配置
+zap:
+  level: 'info'
+  format: 'console'
+  prefix: '[GO-GIN-ELEMENT-ADMIN]'
+  director: 'log'
+  show-line: true
+  encode-level: 'LowercaseColorLevelEncoder'
+  stacktrace-key: 'stacktrace'
+  log-in-console: true
+
+# Redis配置
+redis:
+  db: 0
+  addr: '127.0.0.1:6379'
+  password: ''
+
+# 权限管理配置
+casbin:
+  model-path: './resource/rbac_model.conf'
+
+# 系统基础配置
+system:
+  env: 'public'         # 环境模式: public-生产, develop-开发
+  addr: 8888           # 服务端口
+  db-type: 'mysql'     # 数据库类型
+  use-multipoint: false # 多点登录拦截
+  use-redis: false     # 使用Redis
+
+# MySQL数据库配置
+mysql:
+  path: '127.0.0.1:3306'
+  port: '3306'
+  config: 'charset=utf8mb4&parseTime=True&loc=Local'
+  db-name: 'go_gin_element_admin'
+  username: 'root'
+  password: '123456'
+  max-idle-conns: 10
+  max-open-conns: 100
+  log-mode: ''
+  log-zap: false
+
+# 跨域配置
+cors:
+  mode: allow-all  # 允许所有跨域请求，简化开发
