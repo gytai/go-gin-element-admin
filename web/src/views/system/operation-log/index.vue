@@ -153,7 +153,7 @@
     <!-- 详情对话框 -->
     <el-dialog v-model="detailDialogVisible" title="操作日志详情" width="80%">
       <el-descriptions :column="2" border>
-        <el-descriptions-item label="ID">{{ currentLog.id }}</el-descriptions-item>
+        <el-descriptions-item label="ID">{{ currentLog.ID }}</el-descriptions-item>
         <el-descriptions-item label="用户名">{{ currentLog.username }}</el-descriptions-item>
         <el-descriptions-item label="操作类型">
           <el-tag :type="getOperationTypeTagType(currentLog.operationType)">
