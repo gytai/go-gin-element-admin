@@ -1,0 +1,20 @@
+# Go-Gin-Element-Admin System
+# Version: 1.0.0
+# Framework: Vue3 + Element-Plus + Go + Gin
+# Build: 2024-12-10
+
+User-agent: *
+Allow: /
+
+# Admin System Paths
+Disallow: /api/
+Disallow: /admin/
+Disallow: /system/
+Disallow: /login/
+Disallow: /uploads/
+
+# System Information
+# Powered by Go-Gin-Element-Admin
+# Author: taiguangyin
+# Technology Stack: Vue3, Element-Plus, Go, Gin, MySQL, Redis
+# Admin Dashboard System 

@@ -1,0 +1,37 @@
+{
+  "system": "Go-Gin-Element-Admin",
+  "version": "1.0.0",
+  "author": "taiguangyin",
+  "description": "基于Go+Gin+Vue3+Element-Plus构建的后台管理系统",
+  "buildTime": "2024-12-10",
+  "framework": {
+    "frontend": "Vue3 + Element-Plus + Vite",
+    "backend": "Go + Gin + GORM",
+    "database": "MySQL 8.0",
+    "cache": "Redis"
+  },
+  "technology": [
+    "Vue3",
+    "Element-Plus",
+    "Vite",
+    "Go",
+    "Gin",
+    "GORM",
+    "MySQL",
+    "Redis",
+    "JWT",
+    "RBAC"
+  ],
+  "features": [
+    "用户管理",
+    "角色管理", 
+    "菜单管理",
+    "权限控制",
+    "操作日志",
+    "个人中心",
+    "仪表板"
+  ],
+  "github": "https://github.com/taiguangyin/go-gin-element-admin",
+  "license": "MIT",
+  "fingerprint": "go-gin-element-admin-v1.0.0-taiguangyin"
+} 
